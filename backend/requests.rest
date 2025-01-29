@@ -1,0 +1,57 @@
+### Base API
+### register /api/register
+POST http://localhost:3500/api/register
+Content-Type: application/json
+
+{ "firstname": "Adam", "lastname": "Trautman", "email": "trautman@gmail.com", "user": "Trautman", "password": "pwd" }
+### auth /api/auth
+POST http://localhost:3500/api/auth
+Content-Type: application/json
+
+{ "user": "admin", "password": "pwd" }
+### refresh /api/refresh
+GET http://localhost:3500/api/refresh
+### logout /api/logout
+GET http://localhost:3500/api/logout
+
+
+
+### USERS API /api/customers
+### get all
+GET http://localhost:3500/api/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+### get one
+GET http://localhost:3500/api/customers/23
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+### update
+PUT http://localhost:3500/api/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+Content-Type: application/json
+
+{ "id":"22", "firstname":"Patrick" }
+### delete
+DELETE http://localhost:3500/api/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+Content-Type:application/json
+
+{ "id":25 }
+
+
+
+### STORE API  /api/store/products
+### Add Product
+POST http://localhost:3500/api/store/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+Content-Type:application/json
+
+{ "user":"admin", "name":"Doge", "category":"dog", "description":"A Doge Doggo", "price":420, "img_url":"https://pds.exblog.jp/pds/1/201002/12/90/a0126590_22301391.jpg" }
+### See all Products
+GET http://localhost:3500/api/store/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+
+
+
+### ORDERS API /api/store/orders
+GET http://localhost:3500/api/store/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTAsMTk4NF19LCJpYXQiOjE3MzgwMTQ1MTYsImV4cCI6MTczODAxNTQxNn0.VFjzlW1VTz3DKY6WQMqTjlx9o_VtLL9ZGfQDRQwoVms
+
