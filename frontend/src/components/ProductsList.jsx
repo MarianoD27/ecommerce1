@@ -22,9 +22,8 @@ const ProductsList = () => {
 
   //context
   const { cartItems, addToCart } = useAppContext()
-  const handleAddToCart = (product, e) => {
+  const handleAddToCart = (product) => {
     addToCart(product)
-    e.currentTarget.disabled = true;
   }
 
   //modal
@@ -131,7 +130,7 @@ const ProductsList = () => {
                           ripple={false}
                           fullWidth={true}
                           className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-                          onClick={(e) => handleAddToCart(prod, e)}
+                          onClick={() => handleAddToCart(prod)}
                         >
                           <FontAwesomeIcon icon={faCartShopping} />
                         </Button>

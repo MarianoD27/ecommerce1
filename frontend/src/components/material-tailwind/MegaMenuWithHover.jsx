@@ -40,7 +40,7 @@ function NavListMenu() {
   const renderItems = navListMenuItems.map(
     ({ icon, title, description, path }, key) => (
       <Link to={path} key={key}>
-        <MenuItem className="flex items-center gap-3 rounded-lg hover:bg-purple-500">
+        <MenuItem className="flex items-center gap-3 rounded-lg hover:bg-purple-500 lg:hover:bg-purple-200">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 "> {/*!bg-blue-gray-50*/}
             {" "}
             {React.createElement(icon, {
@@ -52,7 +52,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="white"
-              className="flex items-center text-sm font-bold"
+              className="flex items-center text-sm font-bold lg:text-gray-900"
             >
               {title}
             </Typography>

@@ -11047,6 +11047,16 @@ input[type="range"]::-ms-fill-lower {
     --tw-text-opacity: 1;
     color: rgb(96 125 139 / var(--tw-text-opacity, 1));
   }
+
+  .lg\:text-gray-900 {
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+  }
+
+  .lg\:hover\:bg-purple-200:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 215 254 / var(--tw-bg-opacity, 1));
+  }
 }
 
 @media (min-width: 1140px) {

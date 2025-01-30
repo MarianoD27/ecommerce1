@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect, useRef } from "react";
 import useAppContext from "../hooks/useAppContext";
 import PropTypes from 'prop-types'
 import { useNavigate, useLocation } from "react-router-dom";
@@ -7,6 +8,7 @@ import { toast } from "react-toastify";
 import { Button, Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
+const PRODUCTS_URL = 'api/store/products'
 const ORDERS_URL = '/api/store/orders'
 
 const Cart = ({ showModal, toggle }) => {
@@ -47,6 +49,48 @@ const Cart = ({ showModal, toggle }) => {
     clearCart()
     navigate(`/storefront`, { state: { from: location }, replace: true })
   }
+
+  //get ids
+  const runOnce = useRef(false)
+  const [dbItems, setDbItems] = useState([])
+  useEffect(() => {
+    let isMounted = true
+    const controller = new AbortController()
+    const getIds = async () => {
+      try {
+        const ids = await axiosPrivate.get(PRODUCTS_URL)
+        const ids2 = ids.data.map(prod => prod.item_id)
+        // isMounted && setDbItems(ids2)
+        console.log(ids2);
+        for (const item of cartItems) {
+          if (!ids2.includes(item.item_id)) {
+            clearItem(item)
+            toast('An item from the card does not exist', {
+              position: 'top-center',
+            })
+            setOpenModal(false)
+            toggle()
+          } else {
+            console.log(`cart item checked: ${item.item_id}`);
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        if (error.name !== 'CanceledError' && error.status !== 401) {
+          navigate('/login', { state: { from: location }, replace: true })
+        }
+      }
+    }
+    if (runOnce.current) {
+      getIds()
+    }
+    return () => {
+      isMounted = false
+      controller.abort()
+      runOnce.current = true
+    }
+  }, [])
+
 
   return (
     showModal === true && (

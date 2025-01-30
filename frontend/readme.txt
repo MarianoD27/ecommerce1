@@ -16,7 +16,9 @@ need:
 -xxx also as an admin create a page to monitorize or at least see a list of orders, should look into implementing completion status on them
 -xxx create a confirmation of sorts screen and payment mockup for sending orders, confirmation also to publish a product, which also needs an update
 -xxx improve nav super menu, colors in medium/small screens
-- move the cart db from localStorage to a pg db
 
-not working:
-- in store, disable add to cart buttons
+
+- move the cart db from localStorage to a pg db (hard)
+
+not working: 
+-xxx disabled: in store, disable add to cart buttons
